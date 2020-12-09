@@ -20,13 +20,13 @@
         
         <div id="wrapper">
             <div class="prev">
-                <i class="fas fa-chevron-left" @click="prevImage"></i>
+                <i class="fas fa-chevron-left" @click="prevClick"></i>
             </div>
             <div class="slider">
                 <img :src="images[imageIndex]" alt="Immagine">
             </div>
             <div class="next">
-                <i class="fas fa-chevron-right" @click="nextImage"></i>
+                <i class="fas fa-chevron-right" @click="nextClick"></i>
             </div>
             <nav>
                 <i v-for="(element, index) in images" :class="(index == imageIndex) ? 'active' : null" class="fas fa-circle"></i>

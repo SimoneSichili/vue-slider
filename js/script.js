@@ -13,8 +13,20 @@ var app = new Vue(
                 "https://eskipaper.com/images/landscape-wallpaper-hd-28.jpg",
                 "https://wallpapercave.com/wp/mqgLomk.jpg"
             ],
+            autoplay: "",
+        },
+        created: function () {
+            this.autoplay = setInterval(
+                () => {
+                    this.nextImage();
+                }, 2000
+            );
         },
         methods: {
+            nextClick: function() {
+                clearInterval(this.autoplay);
+                this.nextImage();
+            },
             nextImage: function() {
                 this.imageIndex++;
 
@@ -28,6 +40,10 @@ var app = new Vue(
                 if(this.imageIndex == - 1) {
                     this.imageIndex = this.images.length - 1;
                 }
+            },
+            prevClick: function() {
+                clearInterval(this.autoplay);
+                this.prevImage();
             },
         },
     }
